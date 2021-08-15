@@ -47,7 +47,7 @@ app.use(router);
 // mongoose.connect('mongodb+srv://user1:User1234@cluster0.cqgou.mongodb.net/Account?retryWrites=true&w=majority')
 //     .then(result => {
 //         console.log("Db is connected");
-app.listen(3000 || process.env.PORT);
+app.listen(process.env.PORT || 3000);
 //     }).catch(err => {
 //         console.log(err);
 //     })
