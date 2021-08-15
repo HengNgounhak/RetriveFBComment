@@ -24,7 +24,7 @@
 // }
 
 async function getUser(username, email) {
-    await axios.post('https://localhost:3000/user', {
+    await axios.post('/user', {
         username: username,
         email: email
     }).then((result) => {
