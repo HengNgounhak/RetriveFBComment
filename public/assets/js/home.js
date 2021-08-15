@@ -24,7 +24,7 @@
 // }
 
 async function getUser(username, email) {
-    await axios.post('/user', {
+    await axios.post('https://retrieve-fb-comment.herokuapp.com/user', {
         username: username,
         email: email
     }).then((result) => {
