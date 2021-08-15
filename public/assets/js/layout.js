@@ -8,12 +8,12 @@ window.fbAsyncInit = async function() {
                 xfbml: true,
                 version: 'v11.0'
             });
+
+            FB.getLoginStatus(function(response) {
+                statusChangeCallback(response);
+            });
         }
     })
-
-    FB.getLoginStatus(function(response) {
-        statusChangeCallback(response);
-    });
 };
 
 (function(d, s, id) {
