@@ -1,5 +1,5 @@
 window.fbAsyncInit = async function() {
-    await axios.post('/appID').then((result) => {
+    await axios.post('https://retrieve-fb-comment.herokuapp.com/appID').then((result) => {
         if (result.data) {
             // console.log(result.data)
             FB.init({
