@@ -1,0 +1,59 @@
+<div class="d-flex flex-column my-5 px-5">
+    <div class="d-flex justify-content-between align-content-stretch p-0 mb-4">
+        <button class="border-0 text-white d-bd py-2 px-4 h6 m-0" type="button">Print Comment</button>
+        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <label class="btn dcolor bd-white rounded-0 p-1 active" style="border: 2px solid #2F86B9; width: 170px; height: 40px">
+              <input type="radio" name="options" id="option1" autocomplete="off" checked> All Comment
+            </label>
+            <label class="btn dcolor bd-white rounded-0 p-1" style="border: 2px solid #2F86B9; width: 170px; height: 40px">
+              <input type="radio" name="options" id="option2" autocomplete="off"> Selected Comment
+            </label>
+        </div>
+    </div>
+    <table id="tablecomment" class="js-sort-table table table-sm">
+        <thead>
+            <tr>
+                <th scope="col" class="text-center th-sm" width="25%">Username
+                </th>
+                <th scope="col" class="text-center th-sm " style="width: 55%;">Content
+                </th>
+                <th scope="col" class="text-center th-sm " width="10%">Select
+                </th>
+                <th scope="col" class="text-center th-sm " width="10%"><i class="fas fa-edit"></i>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td scope="row">Tiger Nixon</td>
+                <td>Hello</td>
+                <td><i class="far fa-check-square h5 m-0"></i></td>
+                <td><i class="fas fa-trash-alt"></i></td>
+            </tr>
+            <tr>
+                <td scope="row">Tiger Nixon</td>
+                <td>Hi</td>
+                <td><i class="far fa-square h5 m-0"></i></td>
+                <td><i class="fas fa-trash-alt"></i></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<script>
+    let radios = document.querySelectorAll('.btn-group.btn-group-unselectable input[type="radio"]');
+
+    radios.forEach(radio => {
+        radio.addEventListener('click', function(e) {
+            if (this.getAttribute('data-previous-value') == 'true') {
+                e.target.checked = false;
+            } else {
+                radios.forEach(radio => {
+                    radio.setAttribute('data-previous-value', false)
+                });
+            }
+
+            this.setAttribute('data-previous-value', e.target.checked);
+        });
+    });
+</script>

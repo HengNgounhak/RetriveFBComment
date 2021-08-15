@@ -1,0 +1,56 @@
+const express = require('express');
+const ejslayouts = require('express-ejs-layouts');
+// const mongoose = require("mongoose");
+const path = require('path');
+const cookieParser = require("cookie-parser");
+const session = require("express-session");
+// const https = require('https');
+// const fs = require('fs');
+// const key = fs.readFileSync('./key.pem');
+// const cert = fs.readFileSync('./cert.pem');
+
+if (process.env.NODE_ENV !== 'production') {
+    require('dotenv').config()
+}
+
+const app = express();
+
+const router = require('./routes/index');
+
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.set('view engine', 'ejs');
+app.set('views', 'views');
+app.set('layout', 'layouts/layout');
+app.use(ejslayouts);
+
+app.use(cookieParser());
+app.use(session({
+    cookie: {
+        path: '/',
+        httpOnly: true,
+        maxAge: 1000 * 60 * 60 * 24, // 1h expire
+        sameSite: true,
+        secure: true
+    },
+    secret: process.env.SESSION_SECRET,
+    name: 'sid',
+    resave: false,
+    saveUninitialized: false
+}));
+
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+app.use(router);
+
+// mongoose.connect('mongodb+srv://user1:User1234@cluster0.cqgou.mongodb.net/Account?retryWrites=true&w=majority')
+//     .then(result => {
+//         console.log("Db is connected");
+app.listen(3000 || process.env.PORT);
+//     }).catch(err => {
+//         console.log(err);
+//     })
+
+// const server = https.createServer({ key: key, cert: cert }, app);
+// server.listen(3000);

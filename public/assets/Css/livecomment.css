@@ -1,0 +1,29 @@
+.listcomment li {
+    display: none;
+}
+
+.listcomment li:nth-last-child(-n+10) {
+    display: list-item !important;
+}
+
+.listcomment {
+    max-height: 300px;
+    margin-bottom: 10px;
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+
+@media (max-width: 1000px) {
+    table {
+        width: 90% !important;
+    }
+}
+
+@media (max-width: 800px) {
+    table {
+        width: 100% !important;
+    }
+    .keyword {
+        width: 75% !important;
+    }
+}

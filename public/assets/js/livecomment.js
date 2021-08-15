@@ -1,0 +1,1 @@
+document.getElementById('tolivecomment').style.display = 'none';
