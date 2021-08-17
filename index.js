@@ -31,7 +31,7 @@ app.use(session({
         httpOnly: true,
         maxAge: 1000 * 60 * 60 * 24, // 1h expire
         sameSite: true,
-        secure: true
+        secure: false
     },
     secret: process.env.SESSION_SECRET,
     name: 'me',

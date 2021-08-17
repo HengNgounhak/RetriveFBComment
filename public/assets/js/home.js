@@ -28,7 +28,6 @@ async function getUser(username, email) {
         username: username,
         email: email
     }).then((result) => {
-        console.log(result.data);
         if (result.data) {
             document.location.href = "/page";
         }
