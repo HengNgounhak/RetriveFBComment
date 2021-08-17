@@ -80,17 +80,20 @@ async function logout() {
 //     document.location.href = "/";
 // }
 
-function testAPI() {
-    FB.api('/me?fields=name,email,picture.type(large)', async function(response) {
+async function testAPI() {
+    var name, email;
+    await FB.api('/me?fields=name,email,picture.type(large)', function(response) {
         // console.log(response);
         if (response && !response.error) {
             document.getElementById('username').innerText = response.name;
             document.getElementById('email').innerText = response.email;
-            try {
-                await getUser(response.name, response.email);
-            } catch (error) {
-                //nothing
-            }
+            name = response.name;
+            email = response.email;
         }
     })
+    try {
+        await getUser(response.name, response.email);
+    } catch (error) {
+        //nothing
+    }
 }
