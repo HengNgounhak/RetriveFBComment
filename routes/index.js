@@ -25,7 +25,7 @@ router.get('/livecomment', (req, res) => {
     }
 });
 
-router.get('/url', (req, res) => {
+router.get('/tableurl', (req, res) => {
     if (req.session.user) {
         res.render('tableurl');
     } else {
