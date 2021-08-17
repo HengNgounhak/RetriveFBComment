@@ -1,4 +1,6 @@
 document.getElementById('list').style.display = "none";
+document.getElementById("btnLogin").style.display = 'none';
+
 // document.getElementById('toliveurl').style.display = "none";
 // document.getElementById('toupgradeplan').style.display = "none";
 
