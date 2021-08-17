@@ -60,16 +60,25 @@ function setElements(isLogin) {
     }
 }
 
-function logout() {
-    FB.logout(async function(respone) {
-        // console.log(respone);
-        if (respone) {
-            await axios.get('/logout');
-            setElements(false);
-            document.location.href = "/";
+async function logout() {
+    await axios.get('/logout').then((result) => {
+        if (result.data) {
+            FB.logout(function(respone) {
+                // console.log(respone);
+                if (respone) {
+                    setElements(false);
+                    document.location.href = "/";
+                }
+            })
         }
     })
 }
+
+// async function tologout() {
+//     await axios.get('/logout');
+//     setElements(false);
+//     document.location.href = "/";
+// }
 
 function testAPI() {
     FB.api('/me?fields=name,email,picture.type(large)', function(response) {

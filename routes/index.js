@@ -64,6 +64,7 @@ router.get('/getSession', (req, res) => {
 router.get('/logout', (req, res) => {
     // clear session
     req.session.destroy();
+    res.send('success');
 })
 
 router.post('/appID', (req, res) => {
