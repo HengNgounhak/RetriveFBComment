@@ -81,13 +81,13 @@ async function logout() {
 // }
 
 function testAPI() {
-    FB.api('/me?fields=name,email,picture.type(large)', function(response) {
+    FB.api('/me?fields=name,email,picture.type(large)', async function(response) {
         // console.log(response);
         if (response && !response.error) {
             document.getElementById('username').innerText = response.name;
             document.getElementById('email').innerText = response.email;
             try {
-                getUser(response.name, response.email);
+                await getUser(response.name, response.email);
             } catch (error) {
                 //nothing
             }
