@@ -31,10 +31,10 @@ app.use(session({
         httpOnly: true,
         maxAge: 1000 * 60 * 60 * 24, // 1h expire
         sameSite: true,
-        secure: false
+        secure: true
     },
     secret: process.env.SESSION_SECRET,
-    name: 'sid',
+    name: 'me',
     resave: false,
     saveUninitialized: false
 }));

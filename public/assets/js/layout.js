@@ -61,10 +61,10 @@ function setElements(isLogin) {
 }
 
 function logout() {
-    FB.logout(function(respone) {
+    FB.logout(async function(respone) {
         // console.log(respone);
         if (respone) {
-            axios.get('/logout');
+            await axios.get('/logout');
             setElements(false);
             document.location.href = "/";
         }
