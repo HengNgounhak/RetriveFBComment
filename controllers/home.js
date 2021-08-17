@@ -10,6 +10,7 @@ exports.getUser = (req, res) => {
         username: req.body.username,
         email: req.body.email
     }
+
     const token = jwt.sign({
         data: myUser
     }, secret, { expiresIn: 60 * 60 * 4 });
