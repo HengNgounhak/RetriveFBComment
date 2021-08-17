@@ -92,7 +92,7 @@ async function testAPI() {
         }
     })
     try {
-        await getUser(response.name, response.email);
+        await getUser(name, email);
     } catch (error) {
         //nothing
     }
